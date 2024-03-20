@@ -12,7 +12,12 @@ export interface Loadout {
     id: number;
     name: string;
     img: string;
-  };
+  } | null;
+  secondaryWeapon: {
+    id: number;
+    name: string;
+    img: string;
+  } | null;
   utility: {
     nade1: {
       id: number;
@@ -35,10 +40,6 @@ export interface Loadout {
       img: string;
     } | null;
   };
-  armor: {
-    helmet_armor: boolean;
-    armor: boolean;
-  } | null;
 }
 
 export interface IFromValues {
@@ -49,7 +50,16 @@ export interface IFromValues {
   t: {
     loadout: Loadout;
   }[];
-  roundTime: number;
+  matchData: {
+    roundTime: number;
+    tScore: number;
+    tHealth: number;
+    tArmor: number;
+    ctScore: number;
+    ctHealth: number;
+    ctArmor: number;
+    bombPlanted: boolean;
+  };
 }
 
 const Steps = [
@@ -69,6 +79,11 @@ const Stepper = () => {
             name: "AK-47",
             img: "/equipment/svg_normal/weapon_ak47.svg",
           },
+          secondaryWeapon: {
+            id: 1,
+            name: "Glock-18",
+            img: "/equipment/svg_normal/weapon_glock.svg",
+          },
           utility: {
             nade1: {
               id: 1,
@@ -90,10 +105,6 @@ const Stepper = () => {
               name: "HE",
               img: "/equipment/svg_normal/weapon_hegrenade.svg",
             },
-          },
-          armor: {
-            helmet_armor: true,
-            armor: false,
           },
         },
       }),
@@ -104,6 +115,11 @@ const Stepper = () => {
             name: "AK-47",
             img: "/equipment/svg_normal/weapon_ak47.svg",
           },
+          secondaryWeapon: {
+            id: 1,
+            name: "Usp-s",
+            img: "/equipment/svg_normal/weapon_usp_silencer.svg",
+          },
           utility: {
             nade1: {
               id: 1,
@@ -125,10 +141,6 @@ const Stepper = () => {
               name: "HE",
               img: "/equipment/svg_normal/weapon_hegrenade.svg",
             },
-          },
-          armor: {
-            helmet_armor: true,
-            armor: false,
           },
         },
       }),

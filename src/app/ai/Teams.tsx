@@ -296,11 +296,11 @@ const Loadout = ({
         </div>
         <div
           className={cn(
-            "w-1/3 h-2/3 flex justify-center items-center relative cursor-pointer",
+            "w-1/3 h-2/3 flex justify-center items-center cursor-pointer",
             terrorist ? "hover:bg-orange-300/40" : "hover:bg-blue-300/40"
           )}
         >
-          <Armor playerIndex={number} terrorist={terrorist} />
+          <SecondaryWeapon playerIndex={number} terrorist={terrorist} />
         </div>
       </div>
     </div>
@@ -319,7 +319,7 @@ const MainWeapon = ({
   const mainWeapon = watch(
     `${fieldArrayName}.${playerIndex}.loadout.mainWeapon`
   );
-  const handleWeaponSelect = (weapon: Weapon) => {
+  const handleWeaponSelect = (weapon: Weapon | null) => {
     setValue(`${fieldArrayName}.${playerIndex}.loadout.mainWeapon`, weapon);
   };
 
@@ -334,14 +334,26 @@ const MainWeapon = ({
               : "hover:bg-blue-300/40 border-blue-900/30"
           )}
         >
-          <Image src={mainWeapon.img} alt={mainWeapon.name} fill />
+          {mainWeapon ? (
+            <Image src={mainWeapon.img} alt={mainWeapon.name} fill />
+          ) : (
+            <div className="flex items-center justify-center h-full">
+              <Cross1Icon className="text-black w-7 h-7" />
+            </div>
+          )}
         </div>
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content className="rounded w-[215px] bg-blue-900 flex flex-col h-96 overflow-y-scroll">
-          <div className="p-2">Main Weapon</div>
+        <Popover.Content
+          className={cn(
+            "rounded w-[215px]  flex flex-col h-96 overflow-y-scroll",
+            terrorist ? "bg-[#371b1f]" : "bg-[#111e4c]"
+          )}
+        >
           <div>
-            <div className="p-1 bg-blue-950">
+            <div
+              className={cn("p-1", terrorist ? "bg-[#50292f]" : "bg-blue-950")}
+            >
               <span>Rifles</span>
             </div>
             {weaponList.rifles.map((weapon) => (
@@ -350,7 +362,12 @@ const MainWeapon = ({
                   asChild
                   onClick={() => handleWeaponSelect(weapon)}
                 >
-                  <div className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer">
+                  <div
+                    className={cn(
+                      "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                    )}
+                  >
                     <p className="">{weapon.name}</p>
                     <div className="relative h-10">
                       <Image src={weapon.img} alt={weapon.name} fill />
@@ -361,36 +378,83 @@ const MainWeapon = ({
             ))}
           </div>
           <div>
-            <div className="p-1 bg-blue-950">
+            <div
+              className={cn("p-1", terrorist ? "bg-[#50292f]" : "bg-blue-950")}
+            >
               <span>Smgs</span>
             </div>
             {weaponList.smgs.map((weapon) => (
-              <div
-                key={weapon.id}
-                className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer"
-              >
-                <p className="">{weapon.name}</p>
-                <div className="relative h-10">
-                  <Image src={weapon.img} alt={weapon.name} fill />
-                </div>
+              <div key={weapon.id}>
+                <Popover.Close
+                  asChild
+                  onClick={() => handleWeaponSelect(weapon)}
+                >
+                  <div
+                    className={cn(
+                      "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                    )}
+                  >
+                    <p className="">{weapon.name}</p>
+                    <div className="relative h-10">
+                      <Image src={weapon.img} alt={weapon.name} fill />
+                    </div>
+                  </div>
+                </Popover.Close>
               </div>
             ))}
           </div>
           <div>
-            <div className="p-1 bg-blue-950">
+            <div
+              className={cn("p-1", terrorist ? "bg-[#50292f]" : "bg-blue-950")}
+            >
               <span>Heavy</span>
             </div>
             {weaponList.heavy.map((weapon) => (
-              <div
-                key={weapon.id}
-                className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer"
-              >
-                <p className="">{weapon.name}</p>
-                <div className="relative h-10">
-                  <Image src={weapon.img} alt={weapon.name} fill />
-                </div>
+              <div key={weapon.id}>
+                <Popover.Close
+                  asChild
+                  onClick={() => handleWeaponSelect(weapon)}
+                >
+                  <div
+                    className={cn(
+                      "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                    )}
+                  >
+                    <p className="">{weapon.name}</p>
+                    <div className="relative h-10">
+                      <Image src={weapon.img} alt={weapon.name} fill />
+                    </div>
+                  </div>
+                </Popover.Close>
               </div>
             ))}
+            <div>
+              <div
+                className={cn(
+                  "p-1",
+                  terrorist ? "bg-[#50292f]" : "bg-blue-950"
+                )}
+              >
+                <span>Other</span>
+              </div>
+              <Popover.Close asChild onClick={() => handleWeaponSelect(null)}>
+                <div
+                  className={cn(
+                    "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+                    terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                  )}
+                >
+                  <p className="">No Weapon</p>
+                  <div className="relative h-10">
+                    <div className="flex items-center justify-center h-full">
+                      <Cross1Icon className="text-black w-7 h-7" />
+                    </div>
+                  </div>
+                </div>
+              </Popover.Close>
+            </div>
           </div>
         </Popover.Content>
       </Popover.Portal>
@@ -488,14 +552,25 @@ const Nade = ({
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
-          className="rounded bg-blue-900 flex flex-col h-96 overflow-y-scroll"
+          className={cn(
+            "rounded flex flex-col h-96 overflow-y-scroll",
+            terrorist ? "bg-[#371b1f]" : "bg-[#111e4c]"
+          )}
           sideOffset={5}
         >
+          <div
+            className={cn("p-1", terrorist ? "bg-[#50292f]" : "bg-blue-950")}
+          >
+            <span>Nades</span>
+          </div>
           <>
             {utilityList.map((nade) => (
               <div
                 key={nade.id}
-                className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer"
+                className={cn(
+                  "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+                  terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                )}
               >
                 <Popover.Close asChild onClick={() => handleSelectNade(nade)}>
                   <div>
@@ -508,7 +583,12 @@ const Nade = ({
               </div>
             ))}
           </>
-          <div className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer">
+          <div
+            className={cn(
+              "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+              terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+            )}
+          >
             <Popover.Close asChild onClick={() => handleSelectNade(null)}>
               <div>
                 <p className="">{"No nade"}</p>
@@ -526,7 +606,7 @@ const Nade = ({
   );
 };
 
-const Armor = ({
+const SecondaryWeapon = ({
   terrorist,
   playerIndex,
 }: {
@@ -535,9 +615,14 @@ const Armor = ({
 }) => {
   const { setValue, watch } = useFormContext<IFromValues>();
   const fieldArrayName = terrorist ? "t" : "ct";
-  const armor = watch(`${fieldArrayName}.${playerIndex}.loadout.armor`);
-  const handleArmorSelect = (armor: Armor | null) => {
-    setValue(`${fieldArrayName}.${playerIndex}.loadout.armor`, armor);
+  const secondaryWeapon = watch(
+    `${fieldArrayName}.${playerIndex}.loadout.secondaryWeapon`
+  );
+  const handleWeaponSelect = (weapon: Weapon | null) => {
+    setValue(
+      `${fieldArrayName}.${playerIndex}.loadout.secondaryWeapon`,
+      weapon
+    );
   };
 
   return (
@@ -549,16 +634,16 @@ const Armor = ({
             terrorist ? "hover:bg-orange-300/40" : "hover:bg-blue-300/40"
           )}
         >
-          {armor ? (
-            <Image
-              src={
-                armor.helmet_armor
-                  ? "/equipment/svg_normal/item_assaultsuit.svg"
-                  : "/equipment/svg_normal/item_kevlar.svg"
-              }
-              alt="armor"
-              fill
-            />
+          {secondaryWeapon ? (
+            <div className="flex items-center justify-center h-full w-full">
+              <Image
+                src={secondaryWeapon.img}
+                alt="armor"
+                width={100}
+                height={100}
+                className="h-10"
+              />
+            </div>
           ) : (
             <div className="flex items-center justify-center h-full">
               <Cross1Icon className="text-black w-7 h-7" />
@@ -568,59 +653,54 @@ const Armor = ({
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
-          className="rounded bg-blue-900 flex flex-col h-96 overflow-y-scroll"
-          sideOffset={5}
+          className={cn(
+            "rounded w-[215px] flex flex-col h-96 overflow-y-scroll",
+            terrorist ? "bg-[#371b1f]" : "bg-[#111e4c]"
+          )}
         >
-          <div className="p-2">Armor</div>
-          <div className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer">
-            <Popover.Close
-              asChild
-              onClick={() =>
-                handleArmorSelect({ helmet_armor: false, armor: true })
-              }
+          <div>
+            <div
+              className={cn("p-1", terrorist ? "bg-[#50292f]" : "bg-blue-950")}
             >
-              <div>
-                <p className="">Armor</p>
-                <div className="relative h-10">
-                  <Image
-                    src={"/equipment/svg_normal/item_kevlar.svg"}
-                    alt="armor"
-                    fill
-                  />
-                </div>
+              <span>Pistols</span>
+            </div>
+            {weaponList.pistols.map((weapon) => (
+              <div key={weapon.id}>
+                <Popover.Close
+                  asChild
+                  onClick={() => handleWeaponSelect(weapon)}
+                >
+                  <div
+                    className={cn(
+                      "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+                      terrorist ? "hover:bg-[#50292f]" : " hover:bg-blue-950"
+                    )}
+                  >
+                    <p className="">{weapon.name}</p>
+                    <div className="relative h-10">
+                      <Image src={weapon.img} alt={weapon.name} fill />
+                    </div>
+                  </div>
+                </Popover.Close>
               </div>
-            </Popover.Close>
-          </div>
-          <div className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer">
-            <Popover.Close
-              asChild
-              onClick={() =>
-                handleArmorSelect({ helmet_armor: true, armor: false })
-              }
-            >
-              <div>
-                <p className="">Kevlar + Helmet</p>
-                <div className="relative h-10">
-                  <Image
-                    src={"/equipment/svg_normal/item_assaultsuit.svg"}
-                    alt="armor"
-                    fill
-                  />
-                </div>
-              </div>
-            </Popover.Close>
-          </div>
-          <div className="w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col hover:bg-blue-700 cursor-pointer">
-            <Popover.Close asChild onClick={() => handleArmorSelect(null)}>
-              <div>
-                <p className="">Nothing</p>
-                <div className="relative h-10">
-                  <div className="flex items-center justify-center h-full">
-                    <Cross1Icon className="text-black w-7 h-7" />
+            ))}
+            <div>
+              <Popover.Close asChild onClick={() => handleWeaponSelect(null)}>
+                <div
+                  className={cn(
+                    "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
+                    terrorist ? "hover:bg-[#50292f]" : " hover:bg-bg-blue-950"
+                  )}
+                >
+                  <p className="">No Weapon</p>
+                  <div className="relative h-10">
+                    <div className="flex items-center justify-center h-full">
+                      <Cross1Icon className="text-black w-7 h-7" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Popover.Close>
+              </Popover.Close>
+            </div>
           </div>
         </Popover.Content>
       </Popover.Portal>
