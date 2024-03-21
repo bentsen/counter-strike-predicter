@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import Footer from "@/components/main-footer";
+import cn from "@/utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="relative h-auto overflow-x-hidden bg-[#060522] font-mono">
-          <main>{children}</main>
+      <body className={cn(inter.className, "bg-[#060522]")}>
+        <div className="min-h-screen h-auto bg-[#060522] font-mono">
+          <main className="min-h-screen h-auto">{children}</main>
+
           <Footer />
         </div>
       </body>

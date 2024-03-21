@@ -6,6 +6,7 @@ import Maps from "./Maps";
 import Button from "@/components/ui/button";
 import Teams from "./Teams";
 import MatchData from "./MatchData";
+import { useRouter } from "next/navigation";
 
 export interface Loadout {
   mainWeapon: {
@@ -69,6 +70,7 @@ const Steps = [
 ];
 
 const Stepper = () => {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = React.useState<number>(1);
   const methods = useForm<IFromValues>({
     defaultValues: {
@@ -86,22 +88,22 @@ const Stepper = () => {
           },
           utility: {
             nade1: {
-              id: 1,
+              id: 5,
               name: "Smoke",
               img: "/equipment/svg_normal/weapon_smokegrenade.svg",
             },
             nade2: {
               id: 2,
-              name: "Flash",
+              name: "Flashbang",
               img: "/equipment/svg_normal/weapon_flashbang.svg",
             },
             nade3: {
-              id: 3,
+              id: 4,
               name: "Molotov",
               img: "/equipment/svg_normal/weapon_molotov.svg",
             },
             nade4: {
-              id: 4,
+              id: 3,
               name: "HE",
               img: "/equipment/svg_normal/weapon_hegrenade.svg",
             },
@@ -122,22 +124,22 @@ const Stepper = () => {
           },
           utility: {
             nade1: {
-              id: 1,
+              id: 5,
               name: "Smoke",
               img: "/equipment/svg_normal/weapon_smokegrenade.svg",
             },
             nade2: {
               id: 2,
-              name: "Flash",
+              name: "Flashbang",
               img: "/equipment/svg_normal/weapon_flashbang.svg",
             },
             nade3: {
-              id: 3,
+              id: 4,
               name: "Molotov",
               img: "/equipment/svg_normal/weapon_molotov.svg",
             },
             nade4: {
-              id: 4,
+              id: 3,
               name: "HE",
               img: "/equipment/svg_normal/weapon_hegrenade.svg",
             },
@@ -157,6 +159,7 @@ const Stepper = () => {
 
   const handleSubmit = methods.handleSubmit((data) => {
     console.log(data);
+    router.push("/ai/overview");
   });
 
   return (

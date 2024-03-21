@@ -13,6 +13,7 @@ import {
 } from "@radix-ui/react-icons";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const aboutRef = React.useRef<HTMLDivElement>(null);
@@ -125,19 +126,14 @@ export default function Home() {
             </h1>
             <div className="px-8">
               <span className="text-blue-100 text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Veritatis, et eum incidunt facilis autem officiis unde iure in
-                non. Dolores doloremque saepe hic aliquam repellat magni,
-                tenetur veniam eaque. Eaque? Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Nemo beatae in iste sed. Quo sint
-                autem inventore optio tempore id, ad numquam ipsam sed commodi
+                Cs Predicter is a school project made for our machine learning
+                lecture. Idea inspired by the blast pro series ai prediction.
                 <br />
                 <br />
-                minima accusamus veniam, distinctio quasi. Lorem ipsum dolor,
-                sit amet consectetur adipisicing elit. Perferendis atque dolorem
-                tempore! Aliquid praesentium similique dolorem obcaecati. Eum,
-                quo aspernatur. Provident tempora quasi vel ut incidunt eligendi
-                veniam nisi a.
+                We are a group of 2 students who are passionate about gaming and
+                machine learning. We wanted to combine our passion and create
+                something that we can use in our daily lives. We hope you enjoy
+                our project and find it useful.
               </span>
             </div>
           </section>
@@ -151,13 +147,8 @@ export default function Home() {
             </h1>
             <div className="px-8">
               <span className="text-blue-100 text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                beatae in iste sed. Quo sint autem inventore optio tempore id,
-                ad numquam ipsam sed commodi minima accusamus veniam, distinctio
-                quasi. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Perferendis atque dolorem tempore! Aliquid praesentium similique
-                dolorem obcaecati. Eum, quo aspernatur. Provident tempora quasi
-                vel ut incidunt eligendi veniam nisi a.
+                2 students from Denmark who are passionate, currently studying
+                Software Development.
               </span>
             </div>
           </section>
@@ -171,13 +162,21 @@ export default function Home() {
             </h1>
             <div className="px-8">
               <span className="text-blue-100 text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                beatae in iste sed. Quo sint autem inventore optio tempore id,
-                ad numquam ipsam sed commodi minima accusamus veniam, distinctio
-                quasi. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Perferendis atque dolorem tempore! Aliquid praesentium similique
-                dolorem obcaecati. Eum, quo aspernatur. Provident tempora quasi
-                vel ut incidunt eligendi veniam nisi a.
+                For any questions or inquiries, please contact us via github:
+                <div className="flex flex-col pt-2 underline text-[#67B4EB]">
+                  <Link
+                    href={"https://github.com/bentsen"}
+                    className="cursor-pointer"
+                  >
+                    https://github.com/bentsen
+                  </Link>
+                  <Link
+                    href={"https://github.com/agerholme"}
+                    className="cursor-pointer"
+                  >
+                    https://github.com/agerholme
+                  </Link>
+                </div>
               </span>
             </div>
           </section>
