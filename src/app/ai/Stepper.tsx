@@ -165,9 +165,6 @@ const Stepper = () => {
   return (
     <FormProvider {...methods}>
       <div className="mx-auto w-[650px]">
-        <div className="absolute top-1/4 left-10">
-          {methods.watch("selectedMap")}
-        </div>
         <form onSubmit={(e) => e.preventDefault()}>
           {Steps.map((step) => currentStep === step.step && step.component)}
           <div className="w-full mt-10 flex flex-row gap-5 justify-center ">

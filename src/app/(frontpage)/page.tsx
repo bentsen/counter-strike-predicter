@@ -64,6 +64,7 @@ export default function Home() {
                 Join the Beta
               </Button>
               <Button
+                href={"/signin"}
                 variant={"yellow"}
                 className="flex flex-row gap-2 items-center"
               >

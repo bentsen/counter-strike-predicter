@@ -2,8 +2,12 @@
 
 import Image from "next/image";
 import CountUp from "react-countup";
+import Confetti from "react-confetti";
+import React from "react";
 
 const Overview = () => {
+  const [isConfetti, setIsConfetti] = React.useState(false);
+
   return (
     <div className="w-full flex items-center pt-20 flex-col gap-10">
       <h1 className="text-3xl">Overview</h1>
@@ -23,8 +27,21 @@ const Overview = () => {
         <span className="items-center flex text-2xl">vs</span>
         <div className="flex flex-col gap-5 relative w-40 h-40">
           <div className="z-20 flex items-center justify-center h-full flex-col">
+            <Confetti
+              run={isConfetti}
+              gravity={0.01}
+              className="w-full rounded-t-full"
+              width={300}
+              height={250}
+            />
             <p className="text-xl font-bold">Terrorist</p>
-            <CountUp className="text-2xl" end={70} suffix="%" duration={5} />
+            <CountUp
+              onEnd={() => setIsConfetti(true)}
+              className="text-2xl"
+              end={70}
+              suffix="%"
+              duration={5}
+            />
           </div>
           <Image
             src={"/terrorist.png"}

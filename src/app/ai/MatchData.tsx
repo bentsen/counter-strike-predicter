@@ -37,7 +37,7 @@ const MatchData = () => {
           />
           <h1 className="text-2xl mt-5">Terrorist</h1>
           <div>
-            <p>Terrorist score</p>
+            <p>Score</p>
             <input
               {...register("matchData.tScore")}
               className="text-black w-full h-10 rounded text-lg p-2"
@@ -52,7 +52,7 @@ const MatchData = () => {
               control={control}
               render={({ field }) => (
                 <div>
-                  <p>Terrorist Health</p>
+                  <p>Health</p>
                   <SliderComponent
                     max={500}
                     step={1}
@@ -77,7 +77,7 @@ const MatchData = () => {
               control={control}
               render={({ field }) => (
                 <div>
-                  <p>Terrorist Armor</p>
+                  <p>Armor</p>
                   <SliderComponent
                     max={500}
                     step={1}
@@ -148,7 +148,7 @@ const MatchData = () => {
           <h1 className="text-2xl mt-5">Counter-Terrorist</h1>
           <div>
             <div>
-              <p>Counter-Terrorist Score</p>
+              <p>Score</p>
               <input
                 {...register("matchData.ctScore")}
                 className="text-black w-full h-10 rounded text-lg p-2"
@@ -164,7 +164,7 @@ const MatchData = () => {
               control={control}
               render={({ field }) => (
                 <div>
-                  <p>Counter-Terrorist Health</p>
+                  <p>Health</p>
                   <SliderComponent
                     max={500}
                     step={1}
@@ -185,11 +185,11 @@ const MatchData = () => {
           </div>
           <div>
             <Controller
-              name={"matchData.tArmor"}
+              name={"matchData.ctArmor"}
               control={control}
               render={({ field }) => (
                 <div>
-                  <p>Terrorist Armor</p>
+                  <p>Armor</p>
                   <SliderComponent
                     max={500}
                     step={1}

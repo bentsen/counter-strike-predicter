@@ -164,7 +164,7 @@ const weaponList = {
     {
       id: 5,
       name: "Glock",
-      img: "/equipment/svg_normal/weapon_glock18.svg",
+      img: "/equipment/svg_normal/weapon_glock.svg",
     },
     {
       id: 6,
@@ -218,8 +218,7 @@ const utilityList = [
 ];
 
 const Teams = () => {
-  const { register, handleSubmit, setValue, control, getValues, watch } =
-    useFormContext<IFromValues>();
+  const { control } = useFormContext<IFromValues>();
 
   const { fields, append, prepend, remove } = useFieldArray({
     name: "ct",
@@ -247,8 +246,54 @@ const Teams = () => {
               loadout={field.loadout}
               number={index}
               terrorist={true}
+              remove={removeT}
             />
           ))}
+          {fieldsT.length < 5 && (
+            <button
+              className="border-2 text-3xl border-orange-500/20 text-orange-500/20 rounded h-32"
+              onClick={() =>
+                appendT({
+                  loadout: {
+                    mainWeapon: {
+                      id: 1,
+                      name: "AK-47",
+                      img: "/equipment/svg_normal/weapon_ak47.svg",
+                    },
+                    secondaryWeapon: {
+                      id: 1,
+                      name: "Glock-18",
+                      img: "/equipment/svg_normal/weapon_glock.svg",
+                    },
+                    utility: {
+                      nade1: {
+                        id: 5,
+                        name: "Smoke",
+                        img: "/equipment/svg_normal/weapon_smokegrenade.svg",
+                      },
+                      nade2: {
+                        id: 2,
+                        name: "Flashbang",
+                        img: "/equipment/svg_normal/weapon_flashbang.svg",
+                      },
+                      nade3: {
+                        id: 4,
+                        name: "Molotov",
+                        img: "/equipment/svg_normal/weapon_molotov.svg",
+                      },
+                      nade4: {
+                        id: 3,
+                        name: "HE",
+                        img: "/equipment/svg_normal/weapon_hegrenade.svg",
+                      },
+                    },
+                  },
+                })
+              }
+            >
+              +
+            </button>
+          )}
         </div>
         <div className="flex flex-col gap-1 w-1/2">
           {fields.map((field, index) => (
@@ -257,8 +302,54 @@ const Teams = () => {
               loadout={field.loadout}
               number={index}
               terrorist={false}
+              remove={remove}
             />
           ))}
+          {fields.length < 5 && (
+            <button
+              className="border-2 text-3xl border-blue-500/20 text-blue-500/20 rounded h-32"
+              onClick={() =>
+                append({
+                  loadout: {
+                    mainWeapon: {
+                      id: 1,
+                      name: "AK-47",
+                      img: "/equipment/svg_normal/weapon_ak47.svg",
+                    },
+                    secondaryWeapon: {
+                      id: 1,
+                      name: "Glock-18",
+                      img: "/equipment/svg_normal/weapon_glock.svg",
+                    },
+                    utility: {
+                      nade1: {
+                        id: 5,
+                        name: "Smoke",
+                        img: "/equipment/svg_normal/weapon_smokegrenade.svg",
+                      },
+                      nade2: {
+                        id: 2,
+                        name: "Flashbang",
+                        img: "/equipment/svg_normal/weapon_flashbang.svg",
+                      },
+                      nade3: {
+                        id: 4,
+                        name: "Molotov",
+                        img: "/equipment/svg_normal/weapon_molotov.svg",
+                      },
+                      nade4: {
+                        id: 3,
+                        name: "HE",
+                        img: "/equipment/svg_normal/weapon_hegrenade.svg",
+                      },
+                    },
+                  },
+                })
+              }
+            >
+              +
+            </button>
+          )}
         </div>
       </div>
     </>
@@ -269,10 +360,12 @@ const Loadout = ({
   number,
   terrorist,
   loadout,
+  remove,
 }: {
   number: number;
   terrorist: boolean;
   loadout: Loadout;
+  remove: (index: number) => void;
 }) => {
   return (
     <div
@@ -283,11 +376,22 @@ const Loadout = ({
     >
       <div
         className={cn(
-          "border-b p-2 h-1/3",
+          "border-b p-2 h-1/3 flex justify-between",
           terrorist ? "border-orange-900/30" : "border-blue-900/30"
         )}
       >
-        {terrorist ? "Terrorist" : "Counter-Terrorist"} {number + 1} - Loadout
+        <div className="flex items-center ">
+          {terrorist ? "Terrorist" : "Counter-Terrorist"} {number + 1} - Loadout
+        </div>
+        <button
+          onClick={() => remove(number)}
+          className={cn(
+            "flex items-center justify-center w-7 h-7 cursor-pointer rounded",
+            terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
+          )}
+        >
+          <Cross1Icon />
+        </button>
       </div>
       <div className="flex flex-row h-full w-full">
         <div className="flex flex-col h-full w-2/3 relative">
@@ -295,10 +399,9 @@ const Loadout = ({
           <Utility playerIndex={number} terrorist={terrorist} />
         </div>
         <div
-          className={cn(
-            "w-1/3 h-2/3 flex justify-center items-center cursor-pointer",
-            terrorist ? "hover:bg-orange-300/40" : "hover:bg-blue-300/40"
-          )}
+          className={
+            "w-1/3 h-2/3 flex justify-center items-center cursor-pointer"
+          }
         >
           <SecondaryWeapon playerIndex={number} terrorist={terrorist} />
         </div>
@@ -330,8 +433,8 @@ const MainWeapon = ({
           className={cn(
             "border-b border-r h-1/3 w-full relative cursor-pointer ",
             terrorist
-              ? "hover:bg-orange-300/40 border-orange-900/30"
-              : "hover:bg-blue-300/40 border-blue-900/30"
+              ? "hover:bg-[#50292f] border-orange-900/30"
+              : "hover:bg-[#1A2E74] border-blue-900/30"
           )}
         >
           {mainWeapon ? (
@@ -365,7 +468,7 @@ const MainWeapon = ({
                   <div
                     className={cn(
                       "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
                     )}
                   >
                     <p className="">{weapon.name}</p>
@@ -392,7 +495,7 @@ const MainWeapon = ({
                   <div
                     className={cn(
                       "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
                     )}
                   >
                     <p className="">{weapon.name}</p>
@@ -419,7 +522,7 @@ const MainWeapon = ({
                   <div
                     className={cn(
                       "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                      terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
                     )}
                   >
                     <p className="">{weapon.name}</p>
@@ -443,7 +546,7 @@ const MainWeapon = ({
                 <div
                   className={cn(
                     "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-                    terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                    terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
                   )}
                 >
                   <p className="">No Weapon</p>
@@ -538,7 +641,7 @@ const Nade = ({
         <div
           className={cn(
             "relative w-full",
-            terrorist ? "hover:bg-orange-300/40" : "hover:bg-blue-300/40"
+            terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
           )}
         >
           {nade ? (
@@ -569,7 +672,7 @@ const Nade = ({
                 key={nade.id}
                 className={cn(
                   "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-                  terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+                  terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
                 )}
               >
                 <Popover.Close asChild onClick={() => handleSelectNade(nade)}>
@@ -586,7 +689,7 @@ const Nade = ({
           <div
             className={cn(
               "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-              terrorist ? "hover:bg-[#50292f]" : "hover:bg-blue-950"
+              terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
             )}
           >
             <Popover.Close asChild onClick={() => handleSelectNade(null)}>
@@ -631,7 +734,7 @@ const SecondaryWeapon = ({
         <div
           className={cn(
             "relative h-full w-full",
-            terrorist ? "hover:bg-orange-300/40" : "hover:bg-blue-300/40"
+            terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
           )}
         >
           {secondaryWeapon ? (
@@ -673,7 +776,7 @@ const SecondaryWeapon = ({
                   <div
                     className={cn(
                       "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-                      terrorist ? "hover:bg-[#50292f]" : " hover:bg-blue-950"
+                      terrorist ? "hover:bg-[#50292f]" : " hover:bg-[#1A2E74]"
                     )}
                   >
                     <p className="">{weapon.name}</p>
@@ -689,7 +792,7 @@ const SecondaryWeapon = ({
                 <div
                   className={cn(
                     "w-full p-2 h-auto text-black first:rounded-t last:rounded-b flex flex-col cursor-pointer",
-                    terrorist ? "hover:bg-[#50292f]" : " hover:bg-bg-blue-950"
+                    terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
                   )}
                 >
                   <p className="">No Weapon</p>

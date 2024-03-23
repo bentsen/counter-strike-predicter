@@ -19,9 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "bg-[#060522]")}>
-        <div className="min-h-screen h-auto bg-[#060522] font-mono">
+        <div className="min-h-screen h-auto overflow-x-hidden bg-[#060522] font-mono">
           <main className="min-h-screen h-auto">{children}</main>
-
           <Footer />
         </div>
       </body>
