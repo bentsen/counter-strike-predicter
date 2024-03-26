@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 import { Controller, useForm, useFormContext } from "react-hook-form";
 import { IFromValues } from "./Stepper";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 type MapType = {
   name: string;
@@ -14,13 +14,18 @@ type MapType = {
 
 const maps: MapType[] = [
   {
-    name: "Ancient",
-    src: "/maps/ancient/de_ancient.webp",
-    icon: "/maps/ancient/de_ancient.svg",
+    name: "Cache",
+    src: "/maps/cache/de_cache.webp",
+    icon: "/maps/cache/de_cache_icon.webp",
+  },
+  {
+    name: "Dust 2",
+    src: "/maps/dust2/de_dust2.webp",
+    icon: "/maps/dust2/de_dust2_icon.webp",
   },
   {
     name: "Inferno",
-    src: "/maps/inferno/de_inferno.png",
+    src: "/maps/inferno/de_inferno.webp",
     icon: "/maps/inferno/de_inferno.svg",
   },
   {
@@ -39,27 +44,39 @@ const maps: MapType[] = [
     icon: "/maps/overpass/de_overpass.svg",
   },
   {
+    name: "Train",
+    src: "/maps/train/de_train.webp",
+    icon: "/maps/train/de_train_icon.webp",
+  },
+  {
     name: "Vertigo",
     src: "/maps/vertigo/de_vertigo.webp",
     icon: "/maps/vertigo/de_vertigo.svg",
   },
-  {
-    name: "Anubis",
-    src: "/maps/anubis/de_anubis.webp",
-    icon: "/maps/anubis/de_anubis.svg",
-  },
 ];
 
 const Maps = () => {
-  const { register, handleSubmit, setValue, control } =
-    useFormContext<IFromValues>();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useFormContext<IFromValues>();
 
   return (
     <>
       <h1 className="text-3xl font-bold py-5">1.Choose Map</h1>
+      {errors.selectedMap && (
+        <p className="text-rose-500">
+          <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+          {errors.selectedMap.message}
+        </p>
+      )}
       <Controller
         name="selectedMap"
         control={control}
+        rules={{ required: "Please select a map" }}
         render={({ field }) => (
           <div className="relative aspect-square h-fit overflow-hidden w-full">
             <div className="grid size-full grid-cols-3 grid-rows-3 gap-2 max-md:gap-1">

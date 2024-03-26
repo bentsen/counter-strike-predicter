@@ -6,7 +6,7 @@ import Maps from "./Maps";
 import Button from "@/components/ui/button";
 import Teams from "./Teams";
 import MatchData from "./MatchData";
-import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export interface Loadout {
   mainWeapon: {
@@ -69,8 +69,15 @@ const Steps = [
   { id: 3, step: 3, component: <MatchData /> },
 ];
 
-const Stepper = () => {
-  const router = useRouter();
+const Stepper = ({
+  setPrediction,
+  setMatchData,
+}: {
+  setPrediction: React.Dispatch<
+    React.SetStateAction<{ ct: number; t: number } | undefined>
+  >;
+  setMatchData: React.Dispatch<React.SetStateAction<IFromValues | undefined>>;
+}) => {
   const [currentStep, setCurrentStep] = React.useState<number>(1);
   const methods = useForm<IFromValues>({
     defaultValues: {
@@ -146,20 +153,33 @@ const Stepper = () => {
           },
         },
       }),
+      matchData: {
+        bombPlanted: false,
+      },
     },
   });
 
-  const goToNextStep = (): void =>
-    setCurrentStep(
-      currentStep >= Steps.length ? Steps.length : currentStep + 1
-    );
+  const goToNextStep = (): void => {
+    methods.trigger().then((isValid) => {
+      if (!isValid) return;
+      setCurrentStep(
+        currentStep >= Steps.length ? Steps.length : currentStep + 1
+      );
+    });
+  };
 
   const goToPreviousStep = (): void =>
     setCurrentStep(currentStep <= 1 ? 1 : currentStep - 1);
 
   const handleSubmit = methods.handleSubmit((data) => {
     console.log(data);
-    router.push("/ai/overview");
+    axios
+      .post<{ ct: number; t: number }>("http://127.0.0.1:8000/round", data)
+      .then((response) => {
+        setPrediction(response.data);
+        setMatchData(data);
+      })
+      .catch((err) => console.log(err));
   });
 
   return (

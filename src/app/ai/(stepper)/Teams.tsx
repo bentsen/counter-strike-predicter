@@ -283,7 +283,7 @@ const Teams = () => {
                       },
                       nade4: {
                         id: 3,
-                        name: "HE",
+                        name: "He Grenade",
                         img: "/equipment/svg_normal/weapon_hegrenade.svg",
                       },
                     },
