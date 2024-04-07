@@ -40,7 +40,7 @@ export default function Home() {
       setRandomTextElements(
         Array.from({ length: 40 }, () => getRandomAsciiString(80))
       );
-    }, 100);
+    }, 200);
 
     return () => clearInterval(interval);
   }, []);
@@ -51,6 +51,7 @@ export default function Home() {
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       viewBox="0 0 1354 911"
+      className="opacity-20"
       style={{
         background: "rgb(6, 20, 52)",
         width: "100%",

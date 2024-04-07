@@ -14,6 +14,7 @@ import {
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const aboutRef = React.useRef<HTMLDivElement>(null);
@@ -74,8 +75,30 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute flex items-center justify-center overflow-hidden border-2 border-[#061434] bg-[#061434] shadow-lg shadow-darkBlue-900/20 inset-4 sm:inset-6 lg:inset-12 !bottom-36 md:!bottom-24 rounded-3xl">
-          <div className="absolute text-7xl font-bold">CS Predicter</div>
+        <motion.div
+          initial={{
+            width: "100vw",
+            height: "100vh",
+            inset: 0,
+          }}
+          animate={{
+            width: "auto",
+            height: "auto",
+            left: "3rem",
+            right: "3rem",
+            top: "3rem",
+          }}
+          transition={{ duration: 1 }}
+          className="absolute flex items-center justify-center overflow-hidden border-2 border-[#061434] bg-[#061434] shadow-lg shadow-darkBlue-900/20 inset-4 sm:inset-6 lg:inset-12 !bottom-36 md:!bottom-24 rounded-3xl"
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 1 }}
+            className="absolute text-7xl font-bold"
+          >
+            CS Predicter
+          </motion.div>
           <Image
             className="opacity-30"
             src={"/background.png"}
@@ -83,7 +106,7 @@ export default function Home() {
             alt="background"
           />
           <Banner />
-        </div>
+        </motion.div>
       </div>
       <div className="relative w-full">
         <div className="fixed inset-x-0 top-0 z-[1] border-white/5 p-4 px-6 max-xl:bg-[#060522] max-lg:border-b md:px-12">
