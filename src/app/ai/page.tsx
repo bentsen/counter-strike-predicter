@@ -15,7 +15,7 @@ const Ai = () => {
       <div className="flex items-center justify-center p-40">
         <div className="flex flex-row gap-10">
           <Card
-            src={"/ai_round_predicter_background.jpg"}
+            src={"/ai_round_predictor_background.png"}
             href={"/ai/cs-round-predictor"}
             title={"Round Predictor"}
           >
@@ -24,12 +24,12 @@ const Ai = () => {
             will work your round out and tell you who the round winner would be
           </Card>
           <Card
-            src={"/ai_map_predictor_background.jpg"}
+            src={"/ai_chatbot_background.png"}
             href={"/ai/cs-map-predictor"}
             title={"Map Predictor"}
           >
-            This Ai is chat based and will give you a map prediction based on
-            your wishes for a map
+            Have a question about Counter Strike? This ai will help you with all
+            your questions
           </Card>
         </div>
       </div>
@@ -51,7 +51,7 @@ const Card = ({
   return (
     <Link href={href}>
       <div className="w-96 h-96 rounded hover:backdrop-saturate-50">
-        <div className="h-3/5 bg-blue-100 rounded-t relative">
+        <div className="h-3/5 bg-blue-100 rounded-t-md relative">
           <Image className="rounded-t" src={src} fill alt="background" />
           <div className="absolute flex justify-center items-center w-full h-full">
             <p className="text-xl">{title}</p>

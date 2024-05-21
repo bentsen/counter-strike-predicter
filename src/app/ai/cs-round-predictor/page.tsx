@@ -17,7 +17,7 @@ const CsRoundPredictor = () => {
   return (
     <div className="min-h-screen h-auto w-full pt-10 relative">
       <div className="px-10 fixed top-5">
-        <Button href="/" variant={"yellow"} className="flex flex-row">
+        <Button href="/ai" variant={"yellow"} className="flex flex-row">
           <ChevronLeftIcon className="w-5 h-6 text-yellow-400" />
           Back
         </Button>
