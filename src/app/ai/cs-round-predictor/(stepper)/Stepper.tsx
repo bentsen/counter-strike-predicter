@@ -172,12 +172,12 @@ const Stepper = ({
     setCurrentStep(currentStep <= 1 ? 1 : currentStep - 1);
 
   const handleSubmit = methods.handleSubmit((data) => {
-    console.log(data);
     axios
       .post<{ ct: number; t: number }>("http://127.0.0.1:8000/round", data)
       .then((response) => {
         setPrediction(response.data);
         setMatchData(data);
+        window.scrollTo(0, 0);
       })
       .catch((err) => console.log(err));
   });

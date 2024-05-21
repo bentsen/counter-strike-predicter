@@ -21,7 +21,9 @@ export default function RootLayout({
       <body className={cn(inter.className, "bg-[#060522]")}>
         <div className="min-h-screen h-auto overflow-x-hidden bg-[#060522] font-mono">
           <main className="min-h-screen h-auto">{children}</main>
-          <Footer />
+          <div className="py-10">
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

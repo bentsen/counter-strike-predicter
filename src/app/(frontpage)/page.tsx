@@ -10,6 +10,7 @@ import {
   InfoCircledIcon,
   PersonIcon,
   EnvelopeClosedIcon,
+  BackpackIcon,
 } from "@radix-ui/react-icons";
 import React from "react";
 import Image from "next/image";
@@ -18,7 +19,6 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   const aboutRef = React.useRef<HTMLDivElement>(null);
-
   const scrollTo = (ref: React.MutableRefObject<HTMLDivElement | null>) => {
     ref?.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -58,11 +58,12 @@ export default function Home() {
             </div>
             <div className="justify-end flex flex-row gap-5">
               <Button
+                href={"/shop"}
                 variant="green"
                 className="flex flex-row gap-2 items-center"
               >
-                <PersonIcon className="w-5 h-6 text-green-400" />
-                Join the Beta
+                <BackpackIcon className="w-5 h-6 text-green-400" />
+                Shop
               </Button>
               <Button
                 href={"/signin"}
@@ -88,13 +89,13 @@ export default function Home() {
             right: "3rem",
             top: "3rem",
           }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
           className="absolute flex items-center justify-center overflow-hidden border-2 border-[#061434] bg-[#061434] shadow-lg shadow-darkBlue-900/20 inset-4 sm:inset-6 lg:inset-12 !bottom-36 md:!bottom-24 rounded-3xl"
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 1 }}
+            transition={{ duration: 2, delay: 1.5 }}
             className="absolute text-7xl font-bold"
           >
             CS Predicter
@@ -128,9 +129,13 @@ export default function Home() {
               </Button>
             </div>
             <div className="flex flex-row gap-5">
-              <Button variant="green" className="flex flex-row gap-2">
-                <PersonIcon className="w-5 h-6 text-green-400" />
-                Join the Beta
+              <Button
+                href="/shop"
+                variant="green"
+                className="flex flex-row gap-2"
+              >
+                <BackpackIcon className="w-5 h-6 text-green-400" />
+                Shop
               </Button>
               <Button
                 variant={"yellow"}
