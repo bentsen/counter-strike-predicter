@@ -26,7 +26,7 @@ const Ai = () => {
           <Card
             src={"/ai_chatbot_background.png"}
             href={"/ai/cs-map-predictor"}
-            title={"Map Predictor"}
+            title={"Chat Bot"}
           >
             Have a question about Counter Strike? This ai will help you with all
             your questions
