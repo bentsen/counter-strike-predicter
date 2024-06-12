@@ -5,6 +5,9 @@ const nextConfig = {
       {
         hostname: "cdn.skinport.com",
       },
+      {
+        hostname: "cdn.csgoskins.gg",
+      },
     ],
   },
 };

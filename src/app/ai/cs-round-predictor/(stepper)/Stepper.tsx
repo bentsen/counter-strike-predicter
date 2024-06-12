@@ -173,7 +173,10 @@ const Stepper = ({
 
   const handleSubmit = methods.handleSubmit((data) => {
     axios
-      .post<{ ct: number; t: number }>("http://127.0.0.1:8000/round", data)
+      .post<{ ct: number; t: number }>(
+        "http://127.0.0.1:8000/predict/round",
+        data
+      )
       .then((response) => {
         setPrediction(response.data);
         setMatchData(data);

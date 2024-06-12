@@ -19,17 +19,17 @@ const Ai = () => {
             href={"/ai/cs-round-predictor"}
             title={"Round Predictor"}
           >
-            This Ai will take you through a large form where you will be able to
-            fill out your desired round situtation. After you are done the ai
-            will work your round out and tell you who the round winner would be
+            Fill in the details for your desired round situation. Once you have
+            completed this, the AI will analyze the round and determine who the
+            winner would be.
           </Card>
           <Card
             src={"/ai_chatbot_background.png"}
-            href={"/ai/cs-map-predictor"}
+            href={"/ai/cs-chat"}
             title={"Chat Bot"}
           >
-            Have a question about Counter Strike? This ai will help you with all
-            your questions
+            Have a question about Counter-Strike? This AI is here to help with
+            all your queries.
           </Card>
         </div>
       </div>
@@ -50,10 +50,15 @@ const Card = ({
 }) => {
   return (
     <Link href={href}>
-      <div className="w-96 h-96 rounded hover:backdrop-saturate-50">
-        <div className="h-3/5 bg-blue-100 rounded-t-md relative">
-          <Image className="rounded-t" src={src} fill alt="background" />
-          <div className="absolute flex justify-center items-center w-full h-full">
+      <div className="w-96 h-96 rounded hover:backdrop-saturate-50 group">
+        <div className="h-3/5 rounded-t-md relative overflow-hidden">
+          <Image
+            className="rounded-t-md group-hover:scale-105 transform transition duration-300"
+            src={src}
+            fill
+            alt="background"
+          />
+          <div className="absolute flex justify-center items-center w-full h-full group-hover:scale-105 transform transition duration-300">
             <p className="text-xl">{title}</p>
           </div>
         </div>
