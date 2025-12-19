@@ -29,7 +29,7 @@ export default function Home() {
         className="relative z-10 h-screen w-screen"
         style={{
           background:
-            "linear-gradient(0deg, rgb(6, 5, 34) 30%, rgb(6, 20, 52));",
+            "linear-gradient(0deg, rgb(6, 5, 34) 30%, rgb(6, 20, 52))",
         }}
       >
         <div className="absolute inset-x-14 bottom-8">
@@ -92,20 +92,6 @@ export default function Home() {
           transition={{ duration: 1, delay: 0.5 }}
           className="absolute flex items-center justify-center overflow-hidden border-2 border-[#061434] bg-[#061434] shadow-lg shadow-darkBlue-900/20 inset-4 sm:inset-6 lg:inset-12 !bottom-36 md:!bottom-24 rounded-3xl"
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 1.5 }}
-            className="absolute text-7xl font-bold"
-          >
-            CS Predicter
-          </motion.div>
-          <Image
-            className="opacity-30"
-            src={"/background.png"}
-            fill
-            alt="background"
-          />
           <Banner />
         </motion.div>
       </div>
@@ -154,15 +140,20 @@ export default function Home() {
               About
             </h1>
             <div className="px-8">
-              <span className="text-blue-100 text-lg">
-                Cs Predicter is a school project made for our machine learning
-                lecture. Idea inspired by the blast pro series ai prediction.
+              <span className="text-blue-100 text-lg leading-relaxed">
+                <strong className="font-semibold text-white">
+                  CS Predicter
+                </strong>{" "}
+                began as a machine learning research project, inspired by the
+                BLAST Pro Series AI prediction model. What started as an
+                academic experiment has evolved into a sophisticated tool for
+                analyzing Counter-Strike match outcomes.
                 <br />
                 <br />
-                We are a group of 2 students who are passionate about gaming and
-                machine learning. We wanted to combine our passion and create
-                something that we can use in our daily lives. We hope you enjoy
-                our project and find it useful.
+                We are a duo of software engineering students combining our
+                passion for competitive gaming with advanced data analytics. Our
+                goal is to provide accessible, high-quality match insights for
+                the community.
               </span>
             </div>
           </section>
@@ -176,8 +167,9 @@ export default function Home() {
             </h1>
             <div className="px-8">
               <span className="text-blue-100 text-lg">
-                2 students from Denmark who are passionate, currently studying
-                Software Development.
+                Built by two software engineering students from Denmark with a
+                shared passion for competitive gaming and artificial
+                intelligence.
               </span>
             </div>
           </section>
@@ -191,7 +183,7 @@ export default function Home() {
             </h1>
             <div className="px-8">
               <span className="text-blue-100 text-lg">
-                For any questions or inquiries, please contact us via github:
+                Have questions or feedback? Connect with us on GitHub:
                 <div className="flex flex-col pt-2 underline text-[#67B4EB]">
                   <Link
                     href={"https://github.com/bentsen"}
