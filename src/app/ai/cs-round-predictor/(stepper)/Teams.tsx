@@ -2,12 +2,12 @@
 
 import cn from "@/utils/cn";
 import * as Popover from "@radix-ui/react-popover";
-import * as Portal from "@radix-ui/react-portal";
+
 import Image from "next/image";
 import React from "react";
 import { type IFromValues, type Loadout } from "./Stepper";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import { Cross1Icon } from "@radix-ui/react-icons";
+import { X } from "lucide-react";
 
 interface Weapon {
   id: number;
@@ -390,7 +390,7 @@ const Loadout = ({
             terrorist ? "hover:bg-[#50292f]" : "hover:bg-[#1A2E74]"
           )}
         >
-          <Cross1Icon />
+          <X />
         </button>
       </div>
       <div className="flex flex-row h-full w-full">
@@ -441,7 +441,7 @@ const MainWeapon = ({
             <Image src={mainWeapon.img} alt={mainWeapon.name} fill />
           ) : (
             <div className="flex items-center justify-center h-full">
-              <Cross1Icon className="text-black w-7 h-7" />
+              <X className="text-black w-7 h-7" />
             </div>
           )}
         </div>
@@ -552,7 +552,7 @@ const MainWeapon = ({
                   <p className="">No Weapon</p>
                   <div className="relative h-10">
                     <div className="flex items-center justify-center h-full">
-                      <Cross1Icon className="text-black w-7 h-7" />
+                      <X className="text-black w-7 h-7" />
                     </div>
                   </div>
                 </div>
@@ -648,7 +648,7 @@ const Nade = ({
             <Image src={nade.img} alt="nade 1" fill />
           ) : (
             <div className="flex items-center justify-center h-full">
-              <Cross1Icon className="text-black w-7 h-7" />
+              <X className="text-black w-7 h-7" />
             </div>
           )}
         </div>
@@ -697,7 +697,7 @@ const Nade = ({
                 <p className="">{"No nade"}</p>
                 <div className="relative h-10">
                   <div className="flex items-center justify-center h-full">
-                    <Cross1Icon className="text-black w-7 h-7" />
+                    <X className="text-black w-7 h-7" />
                   </div>
                 </div>
               </div>
@@ -749,7 +749,7 @@ const SecondaryWeapon = ({
             </div>
           ) : (
             <div className="flex items-center justify-center h-full">
-              <Cross1Icon className="text-black w-7 h-7" />
+              <X className="text-black w-7 h-7" />
             </div>
           )}
         </div>
@@ -798,7 +798,7 @@ const SecondaryWeapon = ({
                   <p className="">No Weapon</p>
                   <div className="relative h-10">
                     <div className="flex items-center justify-center h-full">
-                      <Cross1Icon className="text-black w-7 h-7" />
+                      <X className="text-black w-7 h-7" />
                     </div>
                   </div>
                 </div>

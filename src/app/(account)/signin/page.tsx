@@ -1,5 +1,5 @@
 import Button from "@/components/ui/button";
-import { ChevronLeftIcon } from "@radix-ui/react-icons";
+import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 const Signin = () => {
@@ -7,7 +7,7 @@ const Signin = () => {
     <div className="flex h-screen w-full flex-col justify-center px-6 lg:px-8">
       <div className="px-10 fixed top-5">
         <Button href="/" variant={"yellow"} className="flex flex-row">
-          <ChevronLeftIcon className="w-5 h-6 text-yellow-400" />
+          <ChevronLeft className="w-5 h-6 text-yellow-400" />
           Back
         </Button>
       </div>

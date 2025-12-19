@@ -3,15 +3,15 @@
 import Banner from "./Banner";
 import Button from "../../components/ui/button";
 import {
-  ChevronDownIcon,
-  CubeIcon,
-  ViewVerticalIcon,
-  EnterIcon,
-  InfoCircledIcon,
-  PersonIcon,
-  EnvelopeClosedIcon,
-  BackpackIcon,
-} from "@radix-ui/react-icons";
+  ChevronDown,
+  Box,
+  BookOpen,
+  LogIn,
+  Info,
+  User,
+  Mail,
+  Backpack,
+} from "lucide-react";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export default function Home() {
                 variant="orange"
                 className="flex flex-row gap-2 items-center"
               >
-                <ViewVerticalIcon className="w-5 h-6 text-orange-400" />
+                <BookOpen className="w-5 h-6 text-orange-400" />
                 Documentation
               </Button>
               <Button
@@ -47,13 +47,13 @@ export default function Home() {
                 variant="red"
                 className="flex flex-row gap-2 items-center"
               >
-                <CubeIcon className="w-5 h-6 text-red-400" />
+                <Box className="w-5 h-6 text-red-400" />
                 Try AI
               </Button>
             </div>
             <div className="justify-center">
               <Button variant={"blue"} onClick={() => scrollTo(aboutRef)}>
-                <ChevronDownIcon className="w-5 h-6 text-indigo-400" />
+                <ChevronDown className="w-5 h-6 text-indigo-400" />
               </Button>
             </div>
             <div className="justify-end flex flex-row gap-5">
@@ -62,7 +62,7 @@ export default function Home() {
                 variant="green"
                 className="flex flex-row gap-2 items-center"
               >
-                <BackpackIcon className="w-5 h-6 text-green-400" />
+                <Backpack className="w-5 h-6 text-green-400" />
                 Shop
               </Button>
               <Button
@@ -70,7 +70,7 @@ export default function Home() {
                 variant={"yellow"}
                 className="flex flex-row gap-2 items-center"
               >
-                <EnterIcon className="w-5 h-6 text-yellow-400" />
+                <LogIn className="w-5 h-6 text-yellow-400" />
                 Sign in
               </Button>
             </div>
@@ -103,14 +103,14 @@ export default function Home() {
                 variant="orange"
                 className="flex flex-row gap-2 items-center"
               >
-                <ViewVerticalIcon className="w-5 h-6 text-orange-400" />
+                <BookOpen className="w-5 h-6 text-orange-400" />
                 Documentation
               </Button>
               <Button
                 variant="red"
                 className="flex flex-row gap-2 items-center"
               >
-                <CubeIcon className="w-5 h-6 text-red-400" />
+                <Box className="w-5 h-6 text-red-400" />
                 Try AI
               </Button>
             </div>
@@ -120,14 +120,14 @@ export default function Home() {
                 variant="green"
                 className="flex flex-row gap-2"
               >
-                <BackpackIcon className="w-5 h-6 text-green-400" />
+                <Backpack className="w-5 h-6 text-green-400" />
                 Shop
               </Button>
               <Button
                 variant={"yellow"}
                 className="flex flex-row gap-2 items-center"
               >
-                <EnterIcon className="w-5 h-6 text-yellow-400" />
+                <LogIn className="w-5 h-6 text-yellow-400" />
                 Sign in
               </Button>
             </div>
@@ -136,7 +136,7 @@ export default function Home() {
         <div ref={aboutRef} className="mx-auto relative w-full max-w-4xl pt-32">
           <section className="relative flex flex-col gap-8 text-slate-300">
             <h1 className="text-3xl flex flex-row leading-none items-center gap-2">
-              <InfoCircledIcon className="h-7 w-7 text-teal-500" />
+              <Info className="h-7 w-7 text-teal-500" />
               About
             </h1>
             <div className="px-8">
@@ -162,7 +162,7 @@ export default function Home() {
           </div>
           <section className="relative flex flex-col gap-8 text-slate-300">
             <h1 className="text-3xl flex flex-row leading-none items-center gap-2">
-              <PersonIcon className="h-7 w-7 text-purple-500" />
+              <User className="h-7 w-7 text-purple-500" />
               Creators
             </h1>
             <div className="px-8">
@@ -178,7 +178,7 @@ export default function Home() {
           </div>
           <section className="relative flex flex-col gap-8 text-slate-300">
             <h1 className="text-3xl flex flex-row leading-none items-center gap-2">
-              <EnvelopeClosedIcon className="h-7 w-7 text-yellow-500" />
+              <Mail className="h-7 w-7 text-yellow-500" />
               Contact
             </h1>
             <div className="px-8">

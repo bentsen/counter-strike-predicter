@@ -3,15 +3,15 @@
 import { Typewriter } from "react-simple-typewriter";
 import cn from "@/utils/cn";
 import {
-  ArrowUpIcon,
-  ChevronLeftIcon,
-  Crosshair2Icon,
-  DotFilledIcon,
-  EyeOpenIcon,
-  ListBulletIcon,
-  TransformIcon,
-  UploadIcon,
-} from "@radix-ui/react-icons";
+  ArrowUp,
+  ChevronLeft,
+  Crosshair,
+  Loader2,
+  Eye,
+  List,
+  Repeat,
+  Upload,
+} from "lucide-react";
 import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -84,7 +84,7 @@ const CsChat = () => {
     <div className="relative">
       <div className="px-10 fixed top-5">
         <Button href="/ai" variant={"yellow"} className="flex flex-row">
-          <ChevronLeftIcon className="w-5 h-6 text-yellow-400" />
+          <ChevronLeft className="w-5 h-6 text-yellow-400" />
           Back
         </Button>
       </div>
@@ -109,7 +109,7 @@ const CsChat = () => {
                       onClick={() => sendMessage("What is CSGO?")}
                       className="w-40 flex flex-col gap-2 rounded-xl h-24 border border-gray-600 hover:bg-gray-600 p-2 cursor-pointer"
                     >
-                      <EyeOpenIcon className="text-yellow-300 w-4 h-4" />
+                      <Eye className="text-yellow-300 w-4 h-4" />
                       <span className="text-gray-300 line-clamp-3 text-balance break-words">
                         What is CSGO?
                       </span>
@@ -119,7 +119,7 @@ const CsChat = () => {
                       onClick={() => sendMessage("Weapon with longest range?")}
                       className="w-40 flex flex-col gap-2 rounded-xl h-24 border border-gray-600 hover:bg-gray-600 p-2 cursor-pointer"
                     >
-                      <Crosshair2Icon className="text-pink-300 w-4 h-4" />
+                      <Crosshair className="text-pink-300 w-4 h-4" />
                       <span className="text-gray-300 line-clamp-3 text-balance break-words">
                         Weapon with longest range?
                       </span>
@@ -129,7 +129,7 @@ const CsChat = () => {
                       onClick={() => sendMessage("list of skins for awp")}
                       className="w-40 flex flex-col gap-2 rounded-xl h-24 border border-gray-600 hover:bg-gray-600 p-2 cursor-pointer"
                     >
-                      <ListBulletIcon className="text-blue-300 w-4 h-4" />
+                      <List className="text-blue-300 w-4 h-4" />
                       <span className="text-gray-300 line-clamp-3 text-balance break-words">
                         list of skins for awp
                       </span>
@@ -139,7 +139,7 @@ const CsChat = () => {
                       onClick={() => sendMessage("what can you answer?")}
                       className="w-40 flex flex-col gap-2 rounded-xl h-24 border border-gray-600 hover:bg-gray-600 p-2 cursor-pointer"
                     >
-                      <TransformIcon className="text-green-300 w-4 h-4" />
+                      <Repeat className="text-green-300 w-4 h-4" />
                       <span className="text-gray-300 line-clamp-3 text-balance break-words">
                         What can you answer?
                       </span>
@@ -227,7 +227,7 @@ const Inputbar = ({
             {...getRootProps()}
           >
             <input {...getInputProps()} />
-            <UploadIcon className="w-5 h-5 cursor-pointer" />
+            <Upload className="w-5 h-5 cursor-pointer" />
           </div>
           <input
             {...register("message")}
@@ -238,7 +238,7 @@ const Inputbar = ({
           />
           <button className="w-14 rounded-r-xl flex items-center justify-center p-2">
             <div className="bg-[#383838] w-full h-9 flex justify-center items-center rounded-lg">
-              <ArrowUpIcon />
+              <ArrowUp />
             </div>
           </button>
         </div>
@@ -362,7 +362,7 @@ const Message = ({
           >
             {isLoading ? (
               <div className="animate-pulse flex flex-row">
-                <DotFilledIcon className="w-5 h-5" />
+                <Loader2 className="w-5 h-5" />
               </div>
             ) : ai ? (
               <Typewriter words={[message]} typeSpeed={10} />

@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { Controller, useForm, useFormContext } from "react-hook-form";
 import { IFromValues } from "./Stepper";
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { TriangleAlert } from "lucide-react";
 
 type MapType = {
   name: string;
@@ -69,7 +69,7 @@ const Maps = () => {
       <h1 className="text-3xl font-bold py-5">1.Choose Map</h1>
       {errors.selectedMap && (
         <p className="text-rose-500">
-          <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+          <TriangleAlert className="w-4 h-4 inline-block mr-1" />
           {errors.selectedMap.message}
         </p>
       )}

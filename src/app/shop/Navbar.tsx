@@ -1,4 +1,4 @@
-import { TriangleDownIcon } from "@radix-ui/react-icons";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -26,23 +26,23 @@ const Navbar = () => {
           <div className="flex flex-row gap-5 text-md font-bold items-center h-full">
             <div className="flex flex-row items-center">
               Knives
-              <TriangleDownIcon />
+              <ChevronDown />
             </div>
             <div className="flex flex-row items-center">
               Gloves
-              <TriangleDownIcon />
+              <ChevronDown />
             </div>
             <div className="flex flex-row items-center">
               Mid-tier
-              <TriangleDownIcon />
+              <ChevronDown />
             </div>
             <div className="flex flex-row items-center">
               Rifles
-              <TriangleDownIcon />
+              <ChevronDown />
             </div>
             <div className="flex flex-row items-center">
               Pistols
-              <TriangleDownIcon />
+              <ChevronDown />
             </div>
           </div>
         </div>

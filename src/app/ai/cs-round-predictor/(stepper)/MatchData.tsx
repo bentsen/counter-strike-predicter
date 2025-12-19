@@ -2,7 +2,7 @@ import * as Slider from "@radix-ui/react-slider";
 import { Controller, useFormContext } from "react-hook-form";
 import { IFromValues } from "./Stepper";
 import cn from "@/utils/cn";
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { TriangleAlert } from "lucide-react";
 
 const MatchData = () => {
   const {
@@ -32,7 +32,7 @@ const MatchData = () => {
                       <span>-</span>
                       <p className="text-rose-500 text-xs flex items-center flex-row gap-2">
                         {errors.matchData.roundTime.message}
-                        <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+                        <TriangleAlert className="w-4 h-4 inline-block mr-1" />
                       </p>
                     </>
                   )}
@@ -63,7 +63,7 @@ const MatchData = () => {
                   <span>-</span>
                   <p className="text-rose-500 text-xs flex items-center flex-row gap-2">
                     {errors.matchData.tScore.message}
-                    <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+                    <TriangleAlert className="w-4 h-4 inline-block mr-1" />
                   </p>
                 </>
               )}
@@ -92,7 +92,7 @@ const MatchData = () => {
                         <span>-</span>
                         <p className="text-rose-500 text-xs flex items-center flex-row gap-2">
                           {errors.matchData.tHealth.message}
-                          <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+                          <TriangleAlert className="w-4 h-4 inline-block mr-1" />
                         </p>
                       </>
                     )}
@@ -129,7 +129,7 @@ const MatchData = () => {
                         <span>-</span>
                         <p className="text-rose-500 text-xs flex items-center flex-row gap-2">
                           {errors.matchData.tArmor.message}
-                          <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+                          <TriangleAlert className="w-4 h-4 inline-block mr-1" />
                         </p>
                       </>
                     )}
@@ -211,7 +211,7 @@ const MatchData = () => {
                     <span>-</span>
                     <p className="text-rose-500 text-xs flex items-center flex-row gap-2">
                       {errors.matchData.ctScore.message}
-                      <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+                      <TriangleAlert className="w-4 h-4 inline-block mr-1" />
                     </p>
                   </>
                 )}
@@ -241,7 +241,7 @@ const MatchData = () => {
                         <span>-</span>
                         <p className="text-rose-500 text-xs flex items-center flex-row gap-2">
                           {errors.matchData.ctHealth.message}
-                          <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+                          <TriangleAlert className="w-4 h-4 inline-block mr-1" />
                         </p>
                       </>
                     )}
@@ -278,7 +278,7 @@ const MatchData = () => {
                         <span>-</span>
                         <p className="text-rose-500 text-xs flex items-center flex-row gap-2">
                           {errors.matchData.ctArmor.message}
-                          <ExclamationTriangleIcon className="w-4 h-4 inline-block mr-1" />
+                          <TriangleAlert className="w-4 h-4 inline-block mr-1" />
                         </p>
                       </>
                     )}

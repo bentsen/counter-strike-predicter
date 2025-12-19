@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/button";
-import { ChevronLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { ChevronLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -29,7 +29,7 @@ const Ai = () => {
           variant="yellow"
           className="flex items-center gap-2 group"
         >
-          <ChevronLeftIcon className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+          <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
           <span>Back</span>
         </Button>
       </div>
@@ -121,7 +121,7 @@ const Card = ({
               <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
                 {title}
               </h3>
-              <ArrowRightIcon className="w-6 h-6 text-white/50 transform -translate-x-4 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-blue-300" />
+              <ArrowRight className="w-6 h-6 text-white/50 transform -translate-x-4 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-blue-300" />
             </div>
             <p className="text-blue-100/70 leading-relaxed">{children}</p>
           </div>

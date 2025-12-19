@@ -2,14 +2,7 @@ import Image from "next/image";
 import { DropzoneState } from "react-dropzone";
 import { ChangeEventHandler, Dispatch, SetStateAction, useState } from "react";
 import cn from "@/utils/cn";
-import {
-  CheckCircledIcon,
-  CrossCircledIcon,
-  FaceIcon,
-  FileIcon,
-  Pencil2Icon,
-  TrashIcon,
-} from "@radix-ui/react-icons";
+import { CheckCircle, XCircle, File as FileIcon } from "lucide-react";
 import IconButton from "../Iconbutton";
 
 interface IDropzoneProps extends DropzoneState {
@@ -67,7 +60,7 @@ const Dropzone = (state: IDropzoneProps) => {
         {state.isDragAccept && (
           <>
             <span className="flex justify-center text-5xl text-green-600">
-              <CheckCircledIcon />
+              <CheckCircle />
             </span>
             <span>
               <h3 className="inline items-center text-neutral-600">
@@ -79,7 +72,7 @@ const Dropzone = (state: IDropzoneProps) => {
         {state.isDragReject && (
           <>
             <span className="flex justify-center text-5xl text-red-600">
-              <CrossCircledIcon />
+              <XCircle />
             </span>
             <span>
               <h3 className="inline-flex items-center text-neutral-600">
