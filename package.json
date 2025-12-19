@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@radix-ui/react-popover": "^1.0.7",
