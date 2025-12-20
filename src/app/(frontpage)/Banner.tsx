@@ -81,7 +81,7 @@ export default function Banner() {
       // 1. Randomly update some characters
       // Change ~1-2% of the characters per frame for a shimmer
       const totalChars = columns * rows;
-      const changesPerFrame = Math.max(1, Math.floor(totalChars * 0.03)); // 5% shuffle
+      const changesPerFrame = Math.max(1, Math.floor(totalChars * 0.01)); // 5% shuffle
 
       for (let i = 0; i < changesPerFrame; i++) {
         const idx = Math.floor(Math.random() * totalChars);

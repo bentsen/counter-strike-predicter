@@ -8,13 +8,13 @@ import { motion } from "framer-motion";
 
 const Ai = () => {
   return (
-    <div className="min-h-screen w-full bg-[#061434] relative overflow-hidden flex flex-col">
+    <div className="min-h-screen w-full relative overflow-hidden flex flex-col">
       {/* Background Gradient */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, rgba(6,20,52,1) 0%, rgba(6,5,34,1) 100%)",
+            "linear-gradient(0deg, rgb(6, 5, 34) 30%, rgb(6, 20, 52))",
         }}
       />
 
@@ -43,13 +43,13 @@ const Ai = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 space-y-4"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-300 tracking-tight">
             AI{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
               Tools
             </span>
           </h1>
-          <p className="text-blue-200/80 text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto">
             Leverage our advanced machine learning models to predict match
             outcomes and analyze gameplay.
           </p>
@@ -123,7 +123,7 @@ const Card = ({
               </h3>
               <ArrowRight className="w-6 h-6 text-white/50 transform -translate-x-4 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-blue-300" />
             </div>
-            <p className="text-blue-100/70 leading-relaxed">{children}</p>
+            <p className="text-blue-100 leading-relaxed">{children}</p>
           </div>
         </div>
       </Link>

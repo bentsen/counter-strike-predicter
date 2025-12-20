@@ -189,7 +189,7 @@ const Stepper = ({
     <FormProvider {...methods}>
       <div className="mx-auto w-[650px]">
         <form onSubmit={(e) => e.preventDefault()}>
-          {Steps.map((step) => currentStep === step.step && step.component)}
+          {Steps.find((step) => step.step === currentStep)?.component}
           <div className="w-full mt-10 flex flex-row gap-5 justify-center ">
             <Button
               disabled={currentStep <= 1}
