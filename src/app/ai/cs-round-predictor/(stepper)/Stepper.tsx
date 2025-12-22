@@ -6,7 +6,7 @@ import Maps from "./Maps";
 import Button from "@/components/ui/button";
 import Teams from "./Teams";
 import MatchData from "./MatchData";
-import axios from "axios";
+import { predictRound } from "@/actions/cs-round-predictor";
 
 export interface Loadout {
   mainWeapon: {
@@ -171,23 +171,21 @@ const Stepper = ({
   const goToPreviousStep = (): void =>
     setCurrentStep(currentStep <= 1 ? 1 : currentStep - 1);
 
-  const handleSubmit = methods.handleSubmit((data) => {
-    axios
-      .post<{ ct: number; t: number }>(
-        "http://127.0.0.1:8000/predict/round",
-        data
-      )
-      .then((response) => {
-        setPrediction(response.data);
-        setMatchData(data);
-        window.scrollTo(0, 0);
-      })
-      .catch((err) => console.log(err));
+  const handleSubmit = methods.handleSubmit(async (data) => {
+    try {
+      const result = await predictRound(data);
+      setPrediction(result);
+      setMatchData(data);
+      window.scrollTo(0, 0);
+    } catch (err: any) {
+      console.error("API Error:", err);
+      alert(err.message);
+    }
   });
 
   return (
     <FormProvider {...methods}>
-      <div className="mx-auto w-[650px]">
+      <div className="mx-auto w-[650px] pb-10">
         <form onSubmit={(e) => e.preventDefault()}>
           {Steps.find((step) => step.step === currentStep)?.component}
           <div className="w-full mt-10 flex flex-row gap-5 justify-center ">
@@ -205,7 +203,7 @@ const Stepper = ({
               </Button>
             ) : (
               <Button variant={"green"} type="submit" onClick={handleSubmit}>
-                Submit
+                Calculate
               </Button>
             )}
           </div>
