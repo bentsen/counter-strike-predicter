@@ -1,7 +1,7 @@
 import * as Slider from "@radix-ui/react-slider";
 import { Controller, useFormContext } from "react-hook-form";
 import { IFromValues } from "./Stepper";
-import cn from "@/utils/cn";
+
 import {
   TriangleAlert,
   Clock,
@@ -10,6 +10,7 @@ import {
   Heart,
   Shield,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const MatchData = () => {
   const {

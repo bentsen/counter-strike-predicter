@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { BookOpen, Bot, ChevronDown, Backpack, LogIn } from "lucide-react";
-import Button from "./ui/button";
-import cn from "../utils/cn";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface UnifiedStickyHeaderProps {
   onScrollToAbout?: () => void;
@@ -60,12 +61,14 @@ export default function UnifiedStickyHeader({
               Documentation
             </Button>
             <Button
-              href="/ai"
+              asChild
               variant="red"
               className="flex flex-row gap-2 items-center"
             >
-              <Bot className="w-5 h-6 text-red-400" />
-              Try AI
+              <Link href={"/ai"}>
+                <Bot className="w-5 h-6 text-red-400" />
+                Try AI
+              </Link>
             </Button>
           </div>
 
@@ -84,20 +87,24 @@ export default function UnifiedStickyHeader({
           {/* Right Side: Shop & Sign In */}
           <div className="flex flex-row gap-5">
             <Button
-              href="/shop"
+              asChild
               variant="green"
               className="flex flex-row gap-2 items-center"
             >
-              <Backpack className="w-5 h-6 text-green-400" />
-              Shop
+              <Link href={"/shop"}>
+                <Backpack className="w-5 h-6 text-green-400" />
+                Shop
+              </Link>
             </Button>
             <Button
-              href="/signin"
+              asChild
               variant="yellow"
               className="flex flex-row gap-2 items-center"
             >
-              <LogIn className="w-5 h-6 text-yellow-400" />
-              Sign in
+              <Link href={"/signin"}>
+                <LogIn className="w-5 h-6 text-yellow-400" />
+                Sign in
+              </Link>
             </Button>
           </div>
         </div>

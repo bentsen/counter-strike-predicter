@@ -1,6 +1,5 @@
 "use client";
 
-import cn from "@/utils/cn";
 import * as Popover from "@radix-ui/react-popover";
 
 import Image from "next/image";
@@ -8,6 +7,7 @@ import React from "react";
 import { type IFromValues, type Loadout } from "./Stepper";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { X, Plus, Trash2, Sword, Shield, Crosshair } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface Weapon {
   id: number;

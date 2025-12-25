@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { ChevronLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,12 +25,14 @@ const Ai = () => {
       {/* Navigation */}
       <div className="relative z-10 w-full p-6 md:p-10 flex justify-between items-center">
         <Button
-          href="/"
+          asChild
           variant="yellow"
           className="flex items-center gap-2 group"
         >
-          <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-          <span>Back</span>
+          <Link href={"/"}>
+            <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+            <span>Back</span>
+          </Link>
         </Button>
       </div>
 

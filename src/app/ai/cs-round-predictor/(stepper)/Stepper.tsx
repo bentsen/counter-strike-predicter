@@ -3,7 +3,7 @@
 import React from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import Maps from "./Maps";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Teams from "./Teams";
 import MatchData from "./MatchData";
 import { predictRound } from "@/actions/cs-round-predictor";

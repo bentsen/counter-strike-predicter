@@ -1,11 +1,11 @@
 "use client";
 
-import cn from "@/utils/cn";
 import Image from "next/image";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { IFromValues } from "./Stepper";
 import { TriangleAlert, Map as MapIcon, Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type MapType = {
   name: string;
