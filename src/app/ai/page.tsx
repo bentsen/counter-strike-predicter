@@ -22,22 +22,10 @@ const Ai = () => {
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Navigation */}
-      <div className="relative z-10 w-full p-6 md:p-10 flex justify-between items-center">
-        <Button
-          asChild
-          variant="yellow"
-          className="flex items-center gap-2 group"
-        >
-          <Link href={"/"}>
-            <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-            <span>Back</span>
-          </Link>
-        </Button>
-      </div>
+      {/* Navigation - Removed in favor of ai/layout.tsx */}
 
       {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center max-w-7xl mx-auto w-full px-6 pb-20">
+      <div className="relative z-10 flex-1 flex flex-col justify-center items-center max-w-7xl mx-auto w-full px-6 pb-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}

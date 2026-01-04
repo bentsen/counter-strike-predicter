@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { DropzoneState } from "react-dropzone";
 import { ChangeEventHandler, Dispatch, SetStateAction, useState } from "react";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { CheckCircle, XCircle, File as FileIcon } from "lucide-react";
 import IconButton from "../Iconbutton";
 

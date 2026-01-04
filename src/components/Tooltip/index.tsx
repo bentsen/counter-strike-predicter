@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 import * as RTooltip from "@radix-ui/react-tooltip";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 const Tooltip = ({
   children,

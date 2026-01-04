@@ -1,7 +1,7 @@
 "use client";
 
 import { Typewriter } from "react-simple-typewriter";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import {
   ArrowUp,
   ChevronLeft,
@@ -18,7 +18,7 @@ import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import { v4 as uuidv4 } from "uuid";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 interface IMessage {
   message?: string;
@@ -82,12 +82,6 @@ const CsChat = () => {
 
   return (
     <div className="relative">
-      <div className="px-10 fixed top-5">
-        <Button href="/ai" variant={"yellow"} className="flex flex-row">
-          <ChevronLeft className="w-5 h-6 text-yellow-400" />
-          Back
-        </Button>
-      </div>
       <div className="w-full flex justify-center">
         <div className="w-[800px] h-auto min-h-screen flex flex-col justify-between">
           <div className="h-full p-2">

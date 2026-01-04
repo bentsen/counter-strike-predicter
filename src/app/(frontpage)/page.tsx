@@ -6,6 +6,7 @@ import { Info, User, Mail } from "lucide-react";
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { cn } from "../../lib/utils";
 
 export default function Home() {
   const aboutRef = React.useRef<HTMLDivElement>(null);
@@ -30,28 +31,14 @@ export default function Home() {
           }}
         />
         <motion.div
-          initial={{
-            width: "100vw",
-            height: "100vh",
-            inset: 0,
-          }}
-          animate={
+          layout
+          transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
+          className={cn(
+            "absolute z-[60] flex items-center justify-center overflow-hidden bg-[#061434]",
             shouldAnimate
-              ? {
-                  width: "auto",
-                  height: "auto",
-                  left: "3rem",
-                  right: "3rem",
-                  top: "3rem",
-                }
-              : {
-                  width: "100vw",
-                  height: "100vh",
-                  inset: 0,
-                }
-          }
-          transition={{ duration: 1, delay: 0.5 }}
-          className="pointer-events-auto absolute z-[60] flex items-center justify-center overflow-hidden border-2 border-[#061434] bg-[#061434] shadow-lg shadow-darkBlue-900/20 inset-4 sm:inset-6 lg:inset-12 !bottom-36 md:!bottom-24 rounded-3xl"
+              ? "pointer-events-auto inset-4 border-2 border-[#061434] shadow-lg shadow-darkBlue-900/20 !bottom-36 rounded-3xl sm:inset-6 md:!bottom-24 lg:inset-12"
+              : "inset-0 h-screen w-screen"
+          )}
         >
           <Banner />
         </motion.div>
@@ -74,9 +61,7 @@ export default function Home() {
             </h1>
             <div className="px-8">
               <span className="text-blue-100 text-lg leading-relaxed">
-                <strong className="font-semibold text-white">
-                  CS Predicter
-                </strong>{" "}
+                <strong className="font-semibold text-white">MidControl</strong>{" "}
                 began as a machine learning research project, inspired by the
                 BLAST Pro Series AI prediction model. What started as an
                 academic experiment has evolved into a sophisticated tool for
@@ -120,15 +105,17 @@ export default function Home() {
                 <div className="flex flex-col pt-2 underline text-[#67B4EB]">
                   <Link
                     href={"https://github.com/bentsen"}
+                    target="_blank"
                     className="cursor-pointer"
                   >
                     https://github.com/bentsen
                   </Link>
                   <Link
-                    href={"https://github.com/agerholme"}
+                    href={"https://github.com/Philippe16"}
+                    target="_blank"
                     className="cursor-pointer"
                   >
-                    https://github.com/agerholme
+                    https://github.com/Philippe16
                   </Link>
                 </div>
               </span>

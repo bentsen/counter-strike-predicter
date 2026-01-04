@@ -16,16 +16,8 @@ const CsRoundPredictor = () => {
   );
 
   return (
-    <div className="min-h-screen h-auto w-full pt-10 relative">
-      <div className="px-10 fixed top-5">
-        <Button asChild variant={"yellow"} className="flex flex-row">
-          <Link href="/ai">
-            <ChevronLeft className="w-5 h-6 text-yellow-400" />
-            Back
-          </Link>
-        </Button>
-      </div>
-      <div className="pt-10">
+    <div className="min-h-screen h-auto w-full pt-24 relative">
+      <div className="pt-0">
         {!prediction || !matchData ? (
           <Stepper setPrediction={setPrediction} setMatchData={setMatchData} />
         ) : (

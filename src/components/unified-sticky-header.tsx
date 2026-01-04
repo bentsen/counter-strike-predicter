@@ -54,11 +54,14 @@ export default function UnifiedStickyHeader({
           {/* Left Side: Documentation & Try AI */}
           <div className="flex flex-row gap-5">
             <Button
+              asChild
               variant="orange"
               className="flex flex-row gap-2 items-center"
             >
-              <BookOpen className="w-5 h-6 text-orange-400" />
-              Documentation
+              <Link href={"/documentation"}>
+                <BookOpen className="w-5 h-6 text-orange-400" />
+                Documentation
+              </Link>
             </Button>
             <Button
               asChild

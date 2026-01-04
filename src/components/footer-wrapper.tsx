@@ -7,7 +7,12 @@ const FooterWrapper = () => {
   const pathname = usePathname();
 
   // Hide footer on /ai routes
-  if (pathname?.startsWith("/ai")) {
+  if (
+    pathname?.startsWith("/ai") ||
+    pathname?.startsWith("/signin") ||
+    pathname?.startsWith("/signup") ||
+    pathname?.startsWith("/documentation")
+  ) {
     return null;
   }
 
