@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MidControl",
+  title: "Midcontrol",
   description:
-    "Advanced AI-powered prediction model for Counter-Strike match outcomes. Take control of the game with MidControl.",
+    "Advanced AI-powered prediction model for Counter-Strike match outcomes. Take control of the game with Midcontrol.",
   keywords: [
     "CS2",
     "Counter-Strike",
@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "Machine Learning",
   ],
   openGraph: {
-    title: "MidControl",
+    title: "Midcontrol",
     description:
-      "Advanced AI-powered prediction model for Counter-Strike match outcomes. Take control of the game with MidControl.",
+      "Advanced AI-powered prediction model for Counter-Strike match outcomes. Take control of the game with Midcontrol.",
     type: "website",
     locale: "en_US",
-    siteName: "MidControl",
+    siteName: "Midcontrol",
   },
 };
 

@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="space-y-8 xl:col-span-1">
             <Link href="/" className="flex items-center gap-2 text-white">
               <Bot className="h-8 w-8 text-indigo-500" />
-              <span className="text-xl font-bold">MidControl</span>
+              <span className="text-xl font-bold">Midcontrol</span>
             </Link>
             <p className="max-w-xs text-sm leading-6 text-slate-400">
               Advanced AI-powered match analysis for Counter-Strike. Built by
@@ -131,7 +131,7 @@ const Footer = () => {
         </div>
         <div className="mt-16 border-t border-white/5 pt-8 sm:mt-20 lg:mt-24 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs leading-5 text-slate-500">
-            &copy; {new Date().getFullYear()} MidControl. All rights reserved.
+            &copy; {new Date().getFullYear()} Midcontrol. All rights reserved.
           </p>
           <div className="flex items-center gap-1 text-xs text-slate-600">
             <span>Made with</span>

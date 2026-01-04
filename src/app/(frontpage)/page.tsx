@@ -61,7 +61,7 @@ export default function Home() {
             </h1>
             <div className="px-8">
               <span className="text-blue-100 text-lg leading-relaxed">
-                <strong className="font-semibold text-white">MidControl</strong>{" "}
+                <strong className="font-semibold text-white">Midcontrol</strong>{" "}
                 began as a machine learning research project, inspired by the
                 BLAST Pro Series AI prediction model. What started as an
                 academic experiment has evolved into a sophisticated tool for
