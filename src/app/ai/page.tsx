@@ -5,6 +5,13 @@ import { ChevronLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Ai = () => {
   return (
@@ -22,10 +29,8 @@ const Ai = () => {
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Navigation - Removed in favor of ai/layout.tsx */}
-
       {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center items-center max-w-7xl mx-auto w-full px-6 pb-20">
+      <div className="relative z-10 flex-1 flex flex-col justify-center items-center max-w-screen-2xl mx-auto w-full px-6 pb-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
@@ -45,27 +50,61 @@ const Ai = () => {
           </p>
         </motion.div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-          <Card
-            src="/ai_round_predictor_background.png"
-            href="/ai/cs-round-predictor"
-            title="Round Predictor"
-            delay={0.1}
+        {/* Carousel */}
+        <div className="w-full px-12">
+          <Carousel
+            opts={{
+              align: "start",
+            }}
+            className="w-full"
           >
-            Input specific match scenarios and let our neural network predict
-            the most likely winner based on historical data.
-          </Card>
-
-          <Card
-            src="/ai_chatbot_background.png"
-            href="/ai/cs-chat"
-            title="AI Analyst"
-            delay={0.2}
-          >
-            Your personal Esports assistant. Ask questions about strategies,
-            mechanics, or historical stats.
-          </Card>
+            <CarouselContent className="-ml-4">
+              <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <Card
+                  src="/ai_round_predictor_background.png"
+                  href="/ai/cs-round-predictor"
+                  title="Round Predictor"
+                  delay={0.1}
+                >
+                  Input specific match scenarios and let our neural network
+                  predict the most likely winner based on historical data.
+                </Card>
+              </CarouselItem>
+              <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <Card
+                  src="/ai_chatbot_background.png"
+                  href="/ai/cs-chat"
+                  title="AI Analyst"
+                  delay={0.2}
+                >
+                  Your personal Esports assistant. Ask questions about
+                  strategies, mechanics, or historical stats.
+                </Card>
+              </CarouselItem>
+              <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <Card
+                  src="/question_mark.png"
+                  href="#"
+                  title="Upcoming"
+                  delay={0.3}
+                >
+                  More AI tools coming soon...
+                </Card>
+              </CarouselItem>
+              <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <Card
+                  src="/question_mark.png"
+                  href="#"
+                  title="Upcoming"
+                  delay={0.4}
+                >
+                  More AI tools coming soon...
+                </Card>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </div>
