@@ -18,7 +18,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6">
               <a
-                href="https://github.com/bentsen"
+                href="https://github.com/bentsen/counter-strike-predicter"
                 className="text-slate-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noreferrer"
