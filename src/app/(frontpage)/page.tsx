@@ -13,11 +13,22 @@ export default function Home() {
   const scrollTo = (ref: React.MutableRefObject<HTMLDivElement | null>) => {
     ref?.current?.scrollIntoView({ behavior: "smooth" });
   };
-
   const [shouldAnimate, setShouldAnimate] = React.useState(false);
 
   React.useEffect(() => {
-    setShouldAnimate(true);
+    let raf1: number;
+    let raf2: number;
+
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
+        setShouldAnimate(true);
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, []);
 
   return (
@@ -32,7 +43,13 @@ export default function Home() {
         />
         <motion.div
           layout
-          transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
+          transition={{
+            duration: 1,
+            delay: 0.5,
+            ease: "easeInOut",
+            stiffness: 60,
+            damping: 20,
+          }}
           className={cn(
             "absolute z-[60] flex items-center justify-center overflow-hidden bg-[#061434]",
             shouldAnimate
